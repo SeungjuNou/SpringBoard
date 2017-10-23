@@ -63,7 +63,7 @@
 		<tr>
 			<td class="idx">${board.idx}</td>
 			<td align="left" class="subject">
-				<c:if test="${board.comment >= 10}"><img src="<%=request.getContextPath()%>/img/hit.jpg" /></c:if>
+				<c:if test="${board.comment >= 10 || board.hitcount >= 10}"><img src="<%=request.getContextPath()%>/file/hit.png" /></c:if>
 				<a href="view.do?idx=${board.idx}">${board.subject}</a></td>
 			<td class="writer"><c:choose><c:when test="${board.writerId == userId}"><strong>${board.writer}</strong></c:when><c:otherwise>${board.writer}</c:otherwise></c:choose></td>
 			<td class="comment">${board.comment}</td>

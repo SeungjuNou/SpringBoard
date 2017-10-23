@@ -435,7 +435,9 @@ public class BoardController {
 	        throw new Exception("File can't read(파일을 찾을 수 없습니다)");
 
 	    }
-	    return new ModelAndView("download", "downloadFile", downloadFile);
+	    
+	    //modelAndView 리턴(DownloadView실행)
+	    return new ModelAndView("download", "downloadFile", downloadFile); 
 
 	}
 	

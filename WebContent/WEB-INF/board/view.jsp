@@ -94,6 +94,20 @@
 		<tr>
 			<th colspan="2">댓글</th>
 		</tr>		
+		
+		<tr>
+			<td class="writer"><strong>댓글 쓰기</strong></td>
+			<td class="content">
+				<form action="commentWrite.do" method="post">
+					<input type="hidden" id="writer" name="writer" value="${userName}" />
+					<input type="hidden" id="writerId" name="writerId" value="${userId}" />
+					<input type="hidden" id="linkedArticleNum" name="linkedArticleNum" value="${board.idx}" />
+					<textarea id="content" name="content" class="commentForm"></textarea>
+					<input type="submit" value="확인" class="commentBt" />
+				</form>
+			</td>
+		</tr>
+		
 		<c:forEach var="comment" items="${commentList}">
 		<tr>
 			<td class="writer">				
@@ -109,19 +123,9 @@
 			</td>
 		</tr>
 		</c:forEach>
-		<tr>
-			<td class="writer"><strong>댓글 쓰기</strong></td>
-			<td class="content">
-				<form action="commentWrite.do" method="post">
-					<input type="hidden" id="writer" name="writer" value="${userName}" />
-					<input type="hidden" id="writerId" name="writerId" value="${userId}" />
-					<input type="hidden" id="linkedArticleNum" name="linkedArticleNum" value="${board.idx}" />
-					<textarea id="content" name="content" class="commentForm"></textarea>
-					<input type="submit" value="확인" class="commentBt" />
-				</form>
-			</td>
-		</tr>
+
 	</table>
+	${pageHtml}
 	<br />
 	<c:choose>
 		<c:when test="${board.writerId == userId}">
