@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap namespace="member">
+
+	<typeAlias alias="MemberModel" type="model.member.MemberModel"/>
+	
+	<select id="selectOneMember" parameterClass="int" resultClass="MemberModel">
+		select idx, userId, userPw, userName, joinDate
+		from board_Member
+		where idx = #idx#
+	</select>
+	
+	<select id="selectAllMember" resultClass="MemberModel">
+		select idx, userId, userPw, userName, joinDate
+		from board_Member
+	</select>
+	
+	<select id="findByUserId" parameterClass="String" resultClass="MemberModel">
+		select * from board_Member where userId = #userId#
+	</select>
+	
+	<insert id="addMember" parameterClass="MemberModel">
+		insert into board_Member(userId, userPw, userName, joinDate)
+		values(#userId#, #userPw#, #userName#, sysdate() )
+	</insert>		
+</sqlMap>
