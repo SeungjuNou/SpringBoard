@@ -22,15 +22,16 @@ public class DownloadView extends AbstractView{
     protected void renderMergedOutputModel(Map<String, Object> model,
             HttpServletRequest req, HttpServletResponse res) throws Exception {
 
-        File file = (File) model.get("downloadFile");
+        File file = (File) model.get("downloadFile"); //jsp에서 받은 file정보를 얻어 저장한다.
 
-        res.setContentType(getContentType());
+        res.setContentType(getContentType()); 
         res.setContentLength((int) file.length());
         
         res.setHeader("Content-Disposition", "attachment; filename=\"" + 
                 java.net.URLEncoder.encode(file.getName(), "utf-8") + "\";");
 
         res.setHeader("Content-Transfer-Encoding", "binary");
+
         OutputStream out = res.getOutputStream();
         FileInputStream fis = null;
 
@@ -38,7 +39,7 @@ public class DownloadView extends AbstractView{
 
             fis = new FileInputStream(file);
             FileCopyUtils.copy(fis, out);
-            
+  
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

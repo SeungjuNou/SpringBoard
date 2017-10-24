@@ -418,8 +418,7 @@ public class BoardController {
 		return mav;
 	}//updateRecommendCount 종료.
 	
-	
-	
+
 	@RequestMapping(value = "/download.do")
 	public ModelAndView callDownload(@RequestParam (value="fileName") String fileName, 
 	            HttpServletRequest request, 
