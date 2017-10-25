@@ -20,8 +20,8 @@ public class SessionInterceptor extends HandlerInterceptorAdapter{
 		System.out.println(request.getRequestURI());
 		
 		//요청URI가 login.do 혹은 join.do일 경우에는 
-		if(request.getRequestURI().equals("/SpringBoard/login.do") 
-				|| request.getRequestURI().equals("/SpringBoard/member/join.do")){
+		if(request.getRequestURI().equals("/login.do") 
+				|| request.getRequestURI().equals("/member/join.do")){
 
 			System.out.println("test33333333333");
 			
